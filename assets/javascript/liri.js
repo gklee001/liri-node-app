@@ -5,12 +5,10 @@ var spotify = new Spotify(keys.spotify);
 var moment = require('moment');
 
 
-
-
-// run a request with axios, the first will be the action, the second is the value.
+// take two arguements set equal to process.argv[2 and 3]. The first will be the action, the second is the value.
 var commands = process.argv[2];
 var value = process.argv[3];
-//we will then create a switch-case statement
+//we will then create a switch-case statement, the switch-case will direct which function gets run.
 switch (commands) {
     case "concert-this":
         concertThis(value);
@@ -31,23 +29,20 @@ switch (commands) {
         break;
 }
 
-
+//The function needs to search bands and render the following information:
 // * Name of the venue
-
 // * Venue location
-
 // * Date of the Event (use moment to format this as "MM/DD/YYYY")
 
 function concertThis() {
-    //fs is a core node package for reading and writing files
+    //load the first package to read bands in town
     var axios = require("axios");
-
     var queryURL = "https://rest.bandsintown.com/artists/" + value + "/events?app_id=codingbootcamp"
     //run the axios.get function, grab the url and returns a promise
     axios.get(queryURL).then(function (response) {
         var results = response.data;
-        // console.log(results)
-        //for loop through objects
+        console.log(results)
+        //for loop through objects, limit it to 5, without limit it would pull up too much and at somepoint not provide venue name
         for (var i = 0; i < 5; i++) {
             var time = moment(results[i].datetime).format("MMM Do YYYY")
             console.log("-------------------------------------------------------")
@@ -64,13 +59,9 @@ function concertThis() {
         })
 }
 // * Artist(s)
-
-//      * The song's name
-
-//      * A preview link of the song from Spotify
-
-//      * The album that the song is from
-
+//    * The song's name
+//    * A preview link of the song from Spotify
+//    * The album that the song is from
 //    * If no song is provided then your program will default to "The Sign" by Ace of Base
 
 function spotifySong(search) {
