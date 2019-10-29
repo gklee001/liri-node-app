@@ -13,7 +13,6 @@ var value = process.argv[3];
 //we will then create a switch-case statement
 switch (commands) {
     case "concert-this":
-        console.log("this is the first switch")
         concertThis(value);
         break;
 
@@ -51,7 +50,7 @@ function concertThis() {
         //for loop through objects
         for (var i = 0; i < 5; i++) {
             var time = moment(results[i].datetime).format("MMM Do YYYY")
-            // console.log("-------------------------------------------------------")
+            console.log("-------------------------------------------------------")
             console.log("Name of Venue: " + results[i].venue.name)
             console.log("Located in: " + results[i].venue.city)
             console.log("date: " + time)
@@ -104,3 +103,51 @@ function spotifySong(search) {
 
 }
 
+
+// * Title of the movie.
+// * Year the movie came out.
+// * IMDB Rating of the movie.
+// * Rotten Tomatoes Rating of the movie.
+// * Country where the movie was produced.
+// * Language of the movie.
+// * Plot of the movie.
+// * Actors in the movie.
+
+function movieThis() {
+    var axios = require("axios");
+    var queryURL = "https://www.omdbapi.com/?t=" + value + "&apikey=trilogy"
+
+    axios.get(queryURL).then(
+        function (response) {
+            var results = response.data;
+            console.log("Title of movie: " + results.Title)
+            console.log("IMDB rating: " + results.Ratings[0].Value)
+            console.log("Rotten Tomatoes rating: " + results.Ratings[1].Value)
+            console.log("Country where movie was produced: " + results.Country)
+            console.log("Language is in: " + results.Language)
+            console.log("plot of the movie: " + results.Plot)
+            console.log("Actors/Actress in the movie: " + results.Actors)
+        }
+    )
+}
+
+
+function doIt() {
+    var fs = require("fs");
+    //run readFile module
+    fs.readFile("../../random.txt", "utf8", function (err, data) {
+        if (err) {
+            return console.log(err);
+        }
+        else {
+            console.log(data)
+            return data
+
+        }
+    })
+    //random.txt is separated by comma, command and value
+    var output = data.split(",");
+    for (var i = 0; i < output.length; i++) {
+        console.log(output[i])
+    }
+}
