@@ -131,7 +131,7 @@ function doIt() {
         else {
             console.log(data)
         }
-        //random.txt is separated by comma, command and value
+        //random.txt is separated by new lines, so use \n
         output = data.split("\n");
         console.log(output)
         for (var i = 0; i < output.length; i++) {
