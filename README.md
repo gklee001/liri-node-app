@@ -1,17 +1,16 @@
 # liri-node-app
-https://i.postimg.cc/zXQwRWcP/concert-this.jpg
-
+Liri is an application that will search for concerts, songs, and movies!
+If you want to search what town your favorite concert is going to be in you can by 
 ![concert-this](assets/images/concert-this.JPG)
-format: ![Alt Text](url)
+
 
 ![do-what-it-says](assets/images/do-what-it-says.JPG)
-format: ![Alt Text](url)
+
 
 ![movie-this](assets/images/movie-this.JPG)
-format: ![Alt Text](url)
+
 
 ![spotify-this-song-the-sign](assets/images/spotify-this-song-the-sign.JPG)
-format: ![Alt Text](url)
+
 
 ![spotify-this-song)](assets/images/spotify-this-song.JPG)
-format: ![Alt Text](url)
